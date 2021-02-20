@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Hotels.Domain.Models.ResultsViewModel>
+
+@if (Model != null )
+{
+<div class="text-left">
+  <h2 class="display-4">Search results</h2>
+  
+  @foreach (var offer in Model)
+  {
+    <div class="form-row">
+      <div class="col-md-10 ">
+        <p><h3> @offer.Name</h3></p>
+        <p> @offer.Description</p>
+        <p>
+          @for (int i = 0; i < offer.Ratting; i++)
+          {
+            <img src="~/star.png" height="24"/>
+          }
+        </p>
+        <p><b>  @offer.Price</b></p>
+        <p><img src="@offer.Image" alt="Alternate Text" height="100" /> </p>
+      </div>
+    </div>
+    <hr />
+  }
+
+</div>
+}
+

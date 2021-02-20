@@ -1,0 +1,63 @@
+﻿@model Hotels.Domain.Models.Request
+
+@{ViewData["Title"] = "Hotel search";}
+
+<div class="text-left">
+  <h2>Hotel search</h2>
+  <hr />
+
+  @*<form method="post"  asp-controller="Home" asp-action="GetHotels">*@
+  @*<form method="post" data-ajax="true" data-ajax-method="post" asp-action="GetHotels">*@
+
+<form action="Home/GetHotels" method="post" id="searchForm">
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+
+      <label for="city" class="form-label">City : </label>
+      <input id="city" name="city" placeholder="Loading data..." value="@Model.City">
+    </div>
+    <input type="hidden" id="cityCode" name="cityCode" value="">
+
+    <div class="col-md-4 mb-3">
+      <label for="radius" class="form-label">Radius (km): </label>
+      <input type="range" id="radius" name="radius"
+             min="0" max="100" value="@Model.Radius" oninput="this.nextElementSibling.value = this.value">
+      <output>100</output>
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="checkIn" class="form-label">Check In : </label>
+      <input id="checkIn" class="date" name="checkIn" placeholder="dd/mm/yyyy" value="@Model.CheckIn">
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="checkOut" class="form-label">Check Out : </label>
+      <input id="checkOut" class="date" name="checkOut" placeholder="dd/mm/yyyy" value="@Model.CheckOut">
+    </div>
+
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="people" class="form-label">People : </label>
+      <input id="people" name="people" type="number" value="@Model.People" min="1" style="max-width: 50px;">
+    </div>
+
+  </div>
+
+  <input type="submit" id="submit" value="Search" class="btn-primary btn-lg"/>
+</form>
+
+  <hr />
+
+  <div id="result"></div>
+</div>
+
+
+
+@*<partial name="_SearchResults" />*@
+@*<script src="js/autocomplete.js"></script>*@
