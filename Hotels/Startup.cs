@@ -25,7 +25,7 @@ namespace Hotels
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddScoped<Search>();
+            services.AddScoped<SearchService>();
             services.AddMemoryCache();
 
             //services.AddRazorPages();

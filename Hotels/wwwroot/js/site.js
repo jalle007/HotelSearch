@@ -11,7 +11,7 @@
 
 $(document).ready(function () {
    
-  $("#checkIn").datepicker({ minDate: new Date(), dateFormat: 'dd-mm-yyyy' });
+  $("#checkIn").datepicker({ minDate: new Date() });
   $("#checkOut").datepicker({ minDate: new Date() });
 
   // this is the id of the form
